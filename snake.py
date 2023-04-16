@@ -29,6 +29,14 @@ class Snake(Turtle):
         if len(self.segments) < 4:
             self.start_pos_x -= MOVE_DISTANCE
 
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+        self.segments.clear()
+        self.start_pos_x = 0
+        self.create_snake()
+        self.head = self.segments[0]
+
     def extend(self):
         self.add_segment(self.segments[-1].xcor(), self.segments[-1].ycor())
 
